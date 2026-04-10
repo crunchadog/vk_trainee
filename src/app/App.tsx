@@ -1,5 +1,5 @@
 import {useEffect} from "react";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import {HashRouter, Route, Routes} from "react-router-dom";
 
 import Header from "../widgets/Header/Header.tsx";
 import AllCatsPage from "../pages/AllCatsPage/AllCatsPage.tsx";
@@ -26,7 +26,7 @@ const App = () => {
 
 
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Routes>
                 <Route path='/' element={<Header/>}>
                     <Route index element={<AllCatsPage/>}/>
@@ -35,7 +35,7 @@ const App = () => {
                     <Route path='*' element={<NotFoundPage/>}/>
                 </Route>
             </Routes>
-        </BrowserRouter>
+        </HashRouter>
     )
 };
 
