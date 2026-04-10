@@ -1,27 +1,49 @@
-import type { JSX } from "react";
-
-import type {ProcessState} from "../../entities/cat/model/types.ts";
+import type {Cat, ProcessState} from "../../entities/cat/model/types.ts";
 import Skeleton from "../ui/Skeleton/Skeleton.tsx";
 import Spinner from "../ui/Spinner/Spinner.tsx";
 import ErrorMessage from "../ui/ErrorMessage/ErrorMessage.tsx";
+import CatGrid from "../../entities/cat/ui/CatGrid/CatGrid.tsx";
 
 interface setContentProps {
     process: ProcessState;
-    component: JSX.Element;
+    Component?: "grid";
+    cats?: Cat[];
+    favouriteIds?: string[];
+    onToggleFavourite?: (cat: Cat) => void;
+    onOpenCatPage?: (cat: Cat) => void;
 }
 
-const setContent = ({ process, component }: setContentProps): JSX.Element => {
+const setContent = ({ process, Component, cats = [], onToggleFavourite, favouriteIds = [], onOpenCatPage}: setContentProps) => {
     switch (process) {
         case "waiting":
-            return <Skeleton />
-        case 'loading':
-            return <Spinner />
+        case "loading":
+            if (cats.length > 0 && Component === "grid") {
+                return (
+                    <CatGrid
+                        cats={cats}
+                        favouriteIds={favouriteIds}
+                        onToggleFavourite={onToggleFavourite}
+                        onOpenCatPage={onOpenCatPage}
+                    />
+                );
+            }
+            return <Spinner />;
         case 'confirmed':
-            return component
+            if (Component === "grid") {
+                return (
+                    <CatGrid
+                        cats={cats}
+                        favouriteIds={favouriteIds}
+                        onToggleFavourite={onToggleFavourite}
+                        onOpenCatPage={onOpenCatPage}
+                    />
+                );
+            }
+            return null;
         case 'error':
             return <ErrorMessage />
         default:
-            throw new Error(`Процесса с таким именем: ${process} - не существует`)
+            return <Skeleton />;
     }
 }
 

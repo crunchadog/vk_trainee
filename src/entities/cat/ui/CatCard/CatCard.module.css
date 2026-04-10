@@ -1,0 +1,238 @@
+.catItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #f0f0f0;
+    aspect-ratio: 1 / 1;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);
+    transition: transform 0.2s ease,
+                box-shadow 0.2s ease,
+                outline-color 0.2s ease;
+    outline: 3px solid transparent;
+    outline-offset: -3px;
+}
+
+.cardHovered {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.16);
+    outline-color: #1e88e5;
+}
+
+.skeleton {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.4s infinite;
+    z-index: 1;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0));
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.catItem:hover .overlay {
+    opacity: 1;
+}
+
+.heartButton {
+    position: absolute;
+    right: 12px;
+    bottom: 12px;
+    z-index: 3;
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+    transition: transform 0.18s ease,
+                box-shadow 0.18s ease,
+                background-color 0.18s ease;
+    padding: 0;
+
+    &:hover {
+        transform: scale(1.08);
+
+    }
+}
+
+.heartButtonActive {
+    background: #ffffff;
+}
+
+.heartIcon {
+    width: 23px;
+    height: 23px;
+    fill: transparent;
+    stroke: #ff5a1f;
+    stroke-width: 2;
+    transition: fill 0.18s ease,
+                stroke 0.18s ease;
+}
+
+.heartButton:hover .heartIcon {
+    fill: rgba(255, 90, 31, 0.18);
+}
+
+.heartButtonActive .heartIcon {
+    fill: #ff5a1f;
+    stroke: #ff5a1f;
+}
+
+.openButton {
+    position: absolute;
+    left: 12px;
+    bottom: 12px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.92);
+    color: #222222;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.18s ease,
+                opacity 0.18s ease,
+                background-color 0.18s ease;
+
+    &:hover:not(:disabled) {
+        transform: translateY(-1px);
+        background: #ffffff;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: default;
+    }
+}
+
+.heartEnter {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
+}
+
+.heartEnterActive {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 180ms ease,
+                transform 180ms ease;
+}
+
+.heartExit {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.heartExitActive {
+    opacity: 0;
+    transform: translateY(8px) scale(0.92);
+    transition: opacity 180ms ease,
+                transform 180ms ease;
+}
+
+@media (max-width: 900px) {
+    .heartButton {
+        width: 38px;
+        height: 38px;
+        right: 10px;
+        bottom: 10px;
+    }
+
+    .openButton {
+        padding: 9px 12px;
+        font-size: 13px;
+        left: 10px;
+        bottom: 10px;
+    }
+}
+
+@media (max-width: 640px) {
+    .catItem {
+        border-radius: 10px;
+    }
+
+    .heartButton {
+        width: 36px;
+        height: 36px;
+    }
+
+    .heartIcon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .openButton {
+        padding: 8px 10px;
+        font-size: 12px;
+    }
+}
+
+@media (hover: none) {
+    .overlay {
+        opacity: 1;
+    }
+
+    .heartButton {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 420px) {
+    .openButton {
+        left: 8px;
+        bottom: 8px;
+        padding: 7px 9px;
+        font-size: 11px;
+    }
+
+    .heartButton {
+        right: 8px;
+        bottom: 8px;
+        width: 34px;
+        height: 34px;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+@media (hover: none) {
+    .heartButton {
+        opacity: 1;
+    }
+}

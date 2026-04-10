@@ -1,0 +1,268 @@
+.page {
+    width: 100%;
+    padding: 24px 16px 36px;
+}
+
+.topBar {
+    max-width: 1280px;
+    margin: 0 auto 18px;
+}
+
+.emoji {
+    position: absolute;
+    transform: translate(-10px, -35px);
+    font-size: 50px;
+}
+
+.layout {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: minmax(420px, 1fr) 420px;
+    gap: 24px;
+    align-items: start;
+}
+
+.imageCard {
+    background: #ffffff;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.image {
+    display: block;
+    width: 100%;
+    height: 720px;
+    object-fit: cover;
+}
+
+.infoCard {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+}
+
+.label {
+    margin: 0 0 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #1e88e5;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.title {
+    margin: 0 0 22px;
+    font-size: 32px;
+    line-height: 1.1;
+    color: #222222;
+    word-break: break-word;
+}
+
+.infoList {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.infoRow {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 27px;
+    align-items: start;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1;
+}
+
+.infoKey {
+    font-weight: 700;
+    color: #2e2e2e;
+}
+
+.infoValue {
+    color: #5a5a5a;
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.link {
+    color: #1e88e5;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+.meta {
+    margin-top: 18px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    font-size: 13px;
+    color: #777777;
+}
+
+.meta span {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: #f6f6f6;
+}
+
+.actions {
+    margin-top: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.backButton,
+.primaryButton,
+.secondaryButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 10px 16px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    transition:
+            transform 0.18s ease,
+            background-color 0.18s ease,
+            color 0.18s ease,
+            opacity 0.18s ease;
+}
+
+.backButton {
+    border: none;
+    background: #eef4fb;
+    color: #1e88e5;
+    cursor: pointer;
+}
+
+.backButton:hover {
+    transform: translateY(-1px);
+    background: #e2eefc;
+}
+
+.primaryButton {
+    border: none;
+    background: #1e88e5;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.primaryButton:hover {
+    transform: translateY(-1px);
+    background: #1976d2;
+}
+
+.primaryButtonActive {
+    background: #ff6a2a;
+}
+
+.primaryButtonActive:hover {
+    background: #ef5d1d;
+}
+
+.secondaryButton {
+    background: #f3f3f3;
+    color: #333333;
+}
+
+.secondaryButton:hover {
+    transform: translateY(-1px);
+    background: #ebebeb;
+}
+
+.notFound {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+}
+
+.notFoundCard {
+    max-width: 560px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.notFoundTitle {
+    margin: 0 0 12px;
+    font-size: 30px;
+    color: #222222;
+}
+
+.notFoundText {
+    margin: 0 0 20px;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666666;
+}
+
+.notFoundActions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 1100px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .image {
+        height: 560px;
+    }
+}
+
+@media (max-width: 640px) {
+    .page {
+        padding: 16px 12px 24px;
+    }
+
+    .infoCard {
+        padding: 18px;
+    }
+
+    .title {
+        font-size: 26px;
+    }
+
+    .infoRow {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .image {
+        height: 380px;
+    }
+}
+
+@media (max-width: 420px) {
+    .actions {
+        flex-direction: column;
+    }
+
+    .backButton,
+    .primaryButton,
+    .secondaryButton {
+        width: 100%;
+    }
+
+    .notFoundCard {
+        padding: 24px 16px;
+    }
+}

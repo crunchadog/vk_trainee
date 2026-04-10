@@ -18,7 +18,7 @@ export interface Cat {
     url: string;
     width: number;
     height: number;
-    breed?: CatBreed[];
+    breeds?: CatBreed[];
 }
 
 export type ProcessState = 'waiting' | 'loading' | 'confirmed' | 'error';
