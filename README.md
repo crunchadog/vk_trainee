@@ -1,75 +1,40 @@
-# React + TypeScript + Vite
+# Cat Pinterest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Реализовано
 
-Currently, two official plugins are available:
+- просмотр списка котиков с API
+- главная вкладка Все котики
+- вкладка Любимые котики
+- добавление котиков в избранное
+- удаление котиков из избранного
+- хранение избранных котиков на клиенте через localStorage
+- роутинг между страницами
+- страница 404 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Основной функционал
 
-## React Compiler
+- загрузка котиков с TheCatAPI
+- отображение карточек котиков в сетке
+- состояние загрузки (loading, confirmed, waiting, error)
+- кнопка Загрузить ещё
+- бесконечная прокрутка
+- отображение страницы любимых котиков
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## Дополнительная реализация:
 
-Note: This will impact Vite dev & build performances.
+- адаптив
+- отдельная страница котика по маршруту /cats/:id
+- переход на отдельную страницу по кнопке Перейти к котику
+- отображение подробной информации о котике:
+- если котик не найден, показываем об этом информацию
+- работа кнопок и элементов интерфейса на устройствах без hover
 
-## Expanding the ESLint configuration
+## Стек
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
-
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- React
+- TypeScript
+- Redux Toolkit
+- React Router
+- Axios
+- CSS Modules
+- React Transition Group
