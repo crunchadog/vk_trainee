@@ -5,6 +5,12 @@ import App from './app/App.tsx'
 import {Provider} from "react-redux";
 import {store} from "./app/store.ts";
 
+if (
+    window.location.pathname === "/vk_trainee/" && !window.location.hash
+) {
+    window.location.replace("/vk_trainee/#/");
+}
+
 createRoot(document.getElementById('root')!).render(
     <StrictMode>
         <Provider store={store}>
