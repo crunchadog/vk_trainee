@@ -16,7 +16,6 @@ const App = () => {
     const {favouriteCats} = useAppSelector(state => state.cats);
     useEffect(() => {
         const storedFavourites = loadFavouriteCats();
-        console.log("в localStorage", storedFavourites);
         dispatch(toStorageFavourites(storedFavourites));
     }, [dispatch])
 
